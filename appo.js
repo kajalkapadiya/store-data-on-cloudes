@@ -2,8 +2,12 @@ document.querySelector('.btn').addEventListener('click', submit);
 
 window.addEventListener("DOMContentLoaded", () => {
     axios.get("https://crudcrud.com/api/c218ee79a3494f87899d61a3be0de5ec/appointmentData")
-    .then((res) => {console.log(res)})
-    .catch((err) => {console.log(err)})
+        .then((res) => { console.log(res) })
+        .catch((err) => { console.log(err) })
+
+        axios.delete("https://crudcrud.com/api/c218ee79a3494f87899d61a3be0de5ec/appointmentData/63c165aedba13103e8f116bd")
+        .then((res) => { console.log(res) })
+        .catch((err) => { console.log(err) })
 })
 
 function submit(e) {
@@ -20,11 +24,11 @@ function submit(e) {
     }
 
     axios.post("https://crudcrud.com/api/c218ee79a3494f87899d61a3be0de5ec/appointmentData", obj)
-    .then((res) => {console.log(res)})
-    .catch((err) => {console.log(err)})
+        .then((res) => { console.log(res) })
+        .catch((err) => { console.log(err) })
 
-   // const myobj = JSON.stringify(obj);
-   // localStorage.setItem(name, myobj);
+    // const myobj = JSON.stringify(obj);
+    // localStorage.setItem(name, myobj);
 
     // add also after submit
     const button = document.createElement('button');
@@ -48,12 +52,15 @@ function submit(e) {
     button.onclick = function (e) {
         e.preventDefault();
 
-        localStorage.removeItem(name);
+        // axios.delete("https://crudcrud.com/api/c218ee79a3494f87899d61a3be0de5ec/appointmentData/")
+        //     .then((res) => { console.log(res) })
+        //     .catch((err) => { console.log(err) })
+        //localStorage.removeItem(name);
         x.removeChild(nameText);
         x.removeChild(button);
         x.removeChild(button1);
     }
-    button1.onclick = function (el){
+    button1.onclick = function (el) {
         el.preventDefault();
 
         document.querySelector('#name').value = obj.name;
