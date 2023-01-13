@@ -1,5 +1,11 @@
 document.querySelector('.btn').addEventListener('click', submit);
 
+window.addEventListener("DOMContentLoaded", () => {
+    axios.get("https://crudcrud.com/api/c218ee79a3494f87899d61a3be0de5ec/appointmentData")
+    .then((res) => {console.log(res)})
+    .catch((err) => {console.log(err)})
+})
+
 function submit(e) {
     e.preventDefault();
 
